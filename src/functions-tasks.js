@@ -55,7 +55,7 @@ function getFunctionBody(func) {
  */
 function getArgumentsCount(funcs) {
   return funcs.map((fn) => {
-    if (typeof fn === 'fn') {
+    if (typeof fn === 'function') {
       return fn.length;
     }
     return 0;
@@ -78,8 +78,11 @@ function getArgumentsCount(funcs) {
  *   power05(16) => 4
  *
  */
-function getPowerFunction(/* exponent */) {
-  throw new Error('Not implemented');
+function getPowerFunction(exponent) {
+  function power(x) {
+    return x ** exponent;
+  }
+  return power;
 }
 
 /**
